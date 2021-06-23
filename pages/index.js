@@ -10,12 +10,28 @@ import CardContent from "@material-ui/core/CardContent";
 
 import { fetchAll } from "../src/ApiStore";
 
-const [country, setCountry] = useState();
+//const [country, setCountry] = useState();
+const data1 = getNewsProps();
+console.log(data1);
 
-export default function Index() {
+export default function Index({ articles }) {
   return (
     <Card>
-      <CardContent>Hello world</CardContent>
+      {articles.map((article) => (
+        <CardContent key={article.title}>{article.description}</CardContent>
+      ))}
     </Card>
   );
+}
+
+// API SEARCH PART //
+
+async function getNewsProps() {
+  const data = await fetchAll();
+  if (!data) {
+    return window.alert("News not found");
+  }
+  return {
+    newsProps: { articles: [data.articles] },
+  };
 }

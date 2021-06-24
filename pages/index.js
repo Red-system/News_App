@@ -4,9 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import ProTip from "../src/ProTip";
-import Link from "../src/Link";
-import Copyright from "../src/Copyright";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -25,10 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-//const [country, setCountry] = useState();
-
 export default function Index({ articles }) {
-  // console.log(articles)
   const classes = useStyles();
   return (
     <Layout>
@@ -37,7 +31,12 @@ export default function Index({ articles }) {
           <CardContent key={article.title}>
             <CardActionArea>
               <CardMedia className={classes.media} image={article.urlToImage} />
-              <Typography className={classes.title} gutterBottom variant="h5" my="5">
+              <Typography
+                className={classes.title}
+                gutterBottom
+                variant="h5"
+                my="5"
+              >
                 {article.title}
               </Typography>
               <Typography variant="body2">{article.publishedAt}</Typography>
@@ -63,12 +62,13 @@ export default function Index({ articles }) {
   );
 }
 
-// API SEARCH PART //
-
+/**
+ * Fetching the datas from src/api
+ */
 export async function getServerSideProps(context) {
   const data = await fetchAll();
   if (!data) {
-    return window.alert("News not found");
+    return {articles: []};
   }
   return {
     props: { articles: data.articles },

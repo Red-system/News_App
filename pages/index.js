@@ -23,7 +23,6 @@ const useStyles = makeStyles({
   media: {
     height: 345,
   },
-
 });
 
 //const [country, setCountry] = useState();
@@ -38,17 +37,19 @@ export default function Index({ articles }) {
           <CardContent key={article.title}>
             <CardActionArea>
               <CardMedia className={classes.media} image={article.urlToImage} />
-              <Typography
-                className={classes.title}
-                gutterBottom
-                variant="h5"
-                component="h6"
-              >
+              <Typography className={classes.title} gutterBottom variant="h5" my="5">
                 {article.title}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="body2">{article.publishedAt}</Typography>
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                component="p"
+                m={4}
+              >
                 {article.description}
               </Typography>
+              <Typography variant="caption">{article.author}</Typography>
             </CardActionArea>
             <CardActions>
               <Button href={article.url} size="small" color="primary">

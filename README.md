@@ -1,25 +1,30 @@
-# Next.js example
+# News app
 
-## How to use
+## A news app broadcasting the top headlines of France
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+Getting our data from this free [NewApi](https://newsapi.org/):
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs
-cd nextjs
+## Getting Started
+
+1 Clone the project
+
+2 Install dependencies
+
+3 Run development server
+
+```bash
+git clone https://github.com/Red-system/News_App.git
+cd News_App
+yarn
+yarn dev
 ```
 
-Install it and run:
+## Deploy the project
 
-```sh
-npm install
-npm run dev
-```
+1 Fork the project
 
-or:
+2 Go to [Vercel.com](https://vercel.com/)
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/nextjs)
+3 Click on new project and link your github project
 
-## The idea behind the example
-
-[Next.js](https://github.com/zeit/next.js) is a framework for server-rendered React apps.
+4 Modify and push the project on main branch for deployment

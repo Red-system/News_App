@@ -1,4 +1,6 @@
 import React from "react";
+import Layout from "../src/layout";
+import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
@@ -14,18 +16,49 @@ import Button from "@material-ui/core/Button";
 
 import { fetchAll } from "../src/api";
 
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 900,
+  },
+  media: {
+    height: 345,
+  },
+
+});
+
 //const [country, setCountry] = useState();
 
 export default function Index({ articles }) {
   // console.log(articles)
+  const classes = useStyles();
   return (
-    <Card>
-      {articles.map((article) => (
-         
-        <CardContent key={article.title}>{article.description}</CardContent>
-
-      ))}
-    </Card>
+    <Layout>
+      <Card className={classes.root}>
+        {articles.map((article) => (
+          <CardContent key={article.title}>
+            <CardActionArea>
+              <CardMedia className={classes.media} image={article.urlToImage} />
+              <Typography
+                className={classes.title}
+                gutterBottom
+                variant="h5"
+                component="h6"
+              >
+                {article.title}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {article.description}
+              </Typography>
+            </CardActionArea>
+            <CardActions>
+              <Button href={article.url} size="small" color="primary">
+                Learn More
+              </Button>
+            </CardActions>
+          </CardContent>
+        ))}
+      </Card>
+    </Layout>
   );
 }
 

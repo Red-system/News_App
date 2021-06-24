@@ -6,9 +6,13 @@ import ProTip from "../src/ProTip";
 import Link from "../src/Link";
 import Copyright from "../src/Copyright";
 import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
 
-import { fetchAll } from "../src/ApiStore";
+import { fetchAll } from "../src/api";
 
 //const [country, setCountry] = useState();
 
@@ -17,7 +21,9 @@ export default function Index({ articles }) {
   return (
     <Card>
       {articles.map((article) => (
+         
         <CardContent key={article.title}>{article.description}</CardContent>
+
       ))}
     </Card>
   );

@@ -43,3 +43,4 @@ yarn dev
 1. Filter the news headlines by choosing a country
 2. Filter the news headlines by typing in a search bar
 3. Add more style to the list page and solo article page
+4. Get a way to actually have a news article in the solo article page and not those [+ X chars] texts. 

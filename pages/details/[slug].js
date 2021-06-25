@@ -40,7 +40,7 @@ export default function Index({ article }) {
             <Typography variant="body2" color="textSecondary" component="p">
               {article.content}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="caption" component="p">
               {article.author}
             </Typography>
           </CardContent>

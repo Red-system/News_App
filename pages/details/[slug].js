@@ -37,7 +37,7 @@ export default function Index({ article }) {
               {article.title}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {article.description}
+              {article.content}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               {article.author}

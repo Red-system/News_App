@@ -36,6 +36,7 @@ export default function Index({ article }) {
             <Typography gutterBottom variant="h5" component="h2">
               {article.title}
             </Typography>
+            <Typography variant="body2">{article.publishedAt}</Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               {article.content}
             </Typography>

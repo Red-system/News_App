@@ -41,7 +41,7 @@ export default function Index({ articles }) {
               >
                 {article.title}
               </Typography>
-              <Typography variant="body2">{article.publishedAt}</Typography>
+              
               <Typography
                 variant="body2"
                 color="textSecondary"

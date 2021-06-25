@@ -36,3 +36,10 @@ yarn dev
 3 Click on new project and link your github project
 
 4 Modify and push the project on main branch for deployment
+
+
+## *Upcoming features*
+
+1. Filter the news headlines by choosing a country
+2. Filter the news headlines by typing in a search bar
+3. Add more style to the list page and solo article page

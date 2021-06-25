@@ -1,16 +1,18 @@
 import React from "react";
-import Layout from "../src/layout";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
+import slugify from "slugify";
 
+import Layout from "../src/layout";
+import {
+  Button,
+  CardMedia,
+  CardContent,
+  CardActions,
+  CardActionArea,
+  Card,
+  Typography,
+  Link,
+  makeStyles,
+} from "@material-ui/core";
 import { fetchAll } from "../src/api";
 
 const useStyles = makeStyles({
@@ -51,7 +53,15 @@ export default function Index({ articles }) {
               <Typography variant="caption">{article.author}</Typography>
             </CardActionArea>
             <CardActions>
-              <Button href={article.url} size="small" color="primary">
+              <Button
+                size="small"
+                color="primary"
+                component={Link}
+                href={`/details/${slugify(article.title, {
+                  lower: true,
+                  strict: true,
+                })}`}
+              >
                 Learn More
               </Button>
             </CardActions>
@@ -68,7 +78,7 @@ export default function Index({ articles }) {
 export async function getServerSideProps(context) {
   const data = await fetchAll();
   if (!data) {
-    return {articles: []};
+    return { articles: [] };
   }
   return {
     props: { articles: data.articles },
